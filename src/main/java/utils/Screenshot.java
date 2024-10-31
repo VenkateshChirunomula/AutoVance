@@ -1,11 +1,7 @@
 package utils;
 
 import com.google.common.io.Files;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +18,13 @@ public class Screenshot {
     }
   }
 
-  public static void getFullPageView(WebDriver driver) {
+  public static void getElementScreenshot(WebElement element, String scrName) {
 
+    File file = element.getScreenshotAs(OutputType.FILE);
+    try {
+      Files.copy(file, new File(scrName + ".jpg"));
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
   }
 }
