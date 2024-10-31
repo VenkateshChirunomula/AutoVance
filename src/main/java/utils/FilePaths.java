@@ -16,7 +16,7 @@ public class FilePaths {
 
     if (file.equals(File.ENV)) {
       return "env.properties";
-    } else if (file.equals(File.Excel)) {
+    } else if (file.equals(File.EXCEL)) {
       return "";
     } else {
       return new FileNotFoundException().getMessage();
@@ -24,6 +24,6 @@ public class FilePaths {
   }
 
   public static void main(String[] args) {
-    getFile(File.Excel);
+    getFile(File.EXCEL);
   }
 }
